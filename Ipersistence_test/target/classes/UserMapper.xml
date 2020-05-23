@@ -1,0 +1,9 @@
+<mapper namespace = "com.zjn.dao.IUserDao">
+    <!-- 唯一标识， namespace + id =  statementId -->
+    <select id = "findAll" resultType = "com.zjn.pojo.User">
+        select * from user
+    </select>
+    <select id = "findByCondition" resultType = "com.zjn.pojo.User" paramterType = "com.zjn.pojo.User">
+        select * from user where id = #{id} and username = #{username}
+    </select>
+</mapper>

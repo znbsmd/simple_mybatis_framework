@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans>
+    <bean id = "accountDao" class ="com.zjn.dao.impl.JdbcAccountDaoImpl">
+        <property name="ConnectionUtils" ref="connectionUtils"/>
+    </bean>
+<!--    <bean id ="transferService" class="com.zjn.service.impl.TransferServiceImpl">-->
+<!--        <property name ="AccountDao" ref ="accountDao">-->
+
+<!--        </property>-->
+<!--    </bean>-->
+    <bean id ="transactionManager" class="com.zjn.utils.TransactionManager">
+        <property name="ConnectionUtils" ref="connectionUtils"/>
+    </bean>
+
+    <bean id ="transServlet" class="com.zjn.servlet.TransServlet">
+    </bean>
+
+    <bean id="proxyFactory" class="com.zjn.factory.ProxyFactory">
+        <property name="TransactionManager" ref="transactionManager"/>
+    </bean>
+    <bean id ="connectionUtils" class="com.zjn.utils.ConnectionUtils"></bean>
+</beans>
